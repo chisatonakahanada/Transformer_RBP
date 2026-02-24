@@ -1,0 +1,53 @@
+# RNA data
+input_embeddings_dir: data/rna_embeddings
+input_path_train_list: data/damy.csv
+input_path_valid_list: data/damy.csv
+
+# RBP data
+rbp_matrix_dir_eclip: data/rbp_matrix_eclip
+rbp_matrix_dir_reformer: data/rbp_matrix_reformer
+num_rbps: 225
+
+# 特徴ベクトルとラベルのカラム範囲設定
+feature_start_index: 28    # 特徴量開始列（768次元）
+label_start_index: 6    # ラベル開始列（22次元のマルチラベル）
+
+# 特徴・隠れ・出力 次元
+emb_dim: 768             
+input_dim: 512
+model_dim: 256                       
+num_labels: 22
+     
+# Transformerの構成
+num_heads: 4
+num_layers: 6
+dropout: 0.1
+
+# 学習設定
+max_epochs: 5000
+batch_size: 256
+lr: 0.0001
+model_save_interval: 10
+
+# 実行環境
+device: "gpu"
+
+rna_type_list:
+  - lncRNA
+  - mRNA
+  - miRNA
+
+# rna_type_filter: ALL | lncRNA | mRNA | miRNA
+rna_type_filter: ALL
+
+species_list:
+  - Homo sapiens
+  # - Human
+  - Mus musculus
+  - Rattus norvegicus
+  - Saccharomyces cerevisiae
+
+
+# test
+input_path_test_list: data/all_80_test.csv
+model_path: 
