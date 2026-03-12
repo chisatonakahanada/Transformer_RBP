@@ -1,12 +1,12 @@
 # RNA data
 input_embeddings_dir: data/rna_embeddings
-input_path_train_list: data/rna_loc/damy.csv
-input_path_valid_list: data/rna_loc/damy.csv
+input_path_train_list: data/rna_loc/rna_40_train.csv
+input_path_valid_list: data/rna_loc/rna_40_valid.csv
 
 # RBP data
 rbp_matrix_dir_eclip: data/rbp_matrix_eclip
 rbp_matrix_dir_reformer: data/rbp_matrix_reformer
-num_rbps: 225
+num_rbps: 150
 
 # 特徴ベクトルとラベルのカラム範囲設定
 feature_start_index: 28    # 特徴量開始列（768次元）
@@ -49,5 +49,5 @@ species_list:
 
 
 # test
-input_path_test_list: data/rna_loc/damy.csv
-model_path: 
+input_path_test_list: data/rna_loc/rna_40_test.csv
+model_path: weight/model_40_all.pt
