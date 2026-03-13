@@ -11,8 +11,9 @@ https://drive.google.com/drive/folders/1ZOX8geocHbAbyK7ic47sOPfzjQ1jt7FH?usp=sha
 2) Download data
 Data used for learning and evaluation can be downloaded from the following link.
 
-[My GitHub Repository](https://drive.google.com/drive/folders/1zNymyjfZVhROodZz1M75lk51AzXEolkd?usp=drive_link)
-         
+```bash
+https://drive.google.com/drive/folders/1zNymyjfZVhROodZz1M75lk51AzXEolkd?usp=drive_link
+```   
    
 4) Download model weights
 
