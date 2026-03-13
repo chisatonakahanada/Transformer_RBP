@@ -6,10 +6,11 @@ Data and pre-trained model weights can be downloaded from the following link.
 https://drive.google.com/drive/folders/1ZOX8geocHbAbyK7ic47sOPfzjQ1jt7FH?usp=sharing
 
 ## Quick Start
-1) Set up
 
-2) Download data
-Data used for learning and evaluation can be downloaded from the following link.
+### 1. Setup
+
+### 2. Download Data
+The data used for training and evaluation can be downloaded from the following link.
 
 ```bash
 https://drive.google.com/drive/folders/1zNymyjfZVhROodZz1M75lk51AzXEolkd?usp=drive_link
