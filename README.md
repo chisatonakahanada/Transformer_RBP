@@ -16,10 +16,10 @@ The data used for training and evaluation can be downloaded from the following l
 ```bash
 https://drive.google.com/drive/folders/1zNymyjfZVhROodZz1M75lk51AzXEolkd?usp=drive_link
 ```
-### ① RNA sequences and localizations
+#### ① RNA sequences and localizations
 
 
-### ② RBP binding sites
+#### ② RBP binding sites
 
 - **rbp_matrix_eclip.zip**  
   Unzip the file and save the data in `data/rbp_matrix_eclip`.
