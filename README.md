@@ -22,20 +22,13 @@ https://drive.google.com/drive/folders/1zNymyjfZVhROodZz1M75lk51AzXEolkd?usp=dri
 #### ② RBP binding sites
 
 - **rbp_matrix_eclip.zip**  
-  Unzip the file and save the data in `data/rbp_matrix_eclip`.
-  RBP binding site matrix based on eclip data.
+  Unzip the file and save the data in `data/rbp_matrix_eclip`.  
+  RBP binding site matrix based on eCLIP data.
 
 - **rbp_matrix_reformer.zip**  
-  Unzip the file and save the data in `data/rbp_matrix_reformer`.
+  Unzip the file and save the data in `data/rbp_matrix_reformer`.  
   RBP binding site matrix predicted by Reformer.
-
-- **rbp_matrix_eclip.zip**
-  Unzip the file and save the data in `data/rbp_matrix_eclip`.
-
-- **rbp_matrix_reformer.zip**
-  RBP binding site matrix predicted  predicted by Reformer.
-  Unzip the file and save the data in `data/rbp_matrix_reformer`.
-
+  
    
 ### 3. Download model weights
 The model weights used can be downloaded from the following link.
