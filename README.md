@@ -21,6 +21,14 @@ https://drive.google.com/drive/folders/1zNymyjfZVhROodZz1M75lk51AzXEolkd?usp=dri
 
 #### ② RBP binding sites
 
+- **rbp_matrix_eclip.zip**  
+  Unzip the file and save the data in `data/rbp_matrix_eclip`.
+  RBP binding site matrix based on eclip data.
+
+- **rbp_matrix_reformer.zip**  
+  Unzip the file and save the data in `data/rbp_matrix_reformer`.
+  RBP binding site matrix predicted by Reformer.
+
 - **rbp_matrix_eclip.zip**
   Unzip the file and save the data in `data/rbp_matrix_eclip`.
 
