@@ -17,7 +17,13 @@ The data used for training and evaluation can be downloaded from the following l
 https://drive.google.com/drive/folders/1zNymyjfZVhROodZz1M75lk51AzXEolkd?usp=drive_link
 ```
 #### ① RNA sequences and localizations
+- **loc_rna.zip**  
+  RNA sequences and their subcellular localization.  
+  Unzip the file and save the data in `data/rna_loc`.
 
+- **rna_embeddeings.zip**  
+  Embedding of RNA sequences obtained using RNAErnie.  
+  Unzip the file and save the data in `data/rna_embeddings`.  
 
 #### ② RBP binding sites
 
