@@ -17,7 +17,11 @@ The data used for training and evaluation can be downloaded from the following l
 https://drive.google.com/drive/folders/1zNymyjfZVhROodZz1M75lk51AzXEolkd?usp=drive_link
 ```   
    
-4) Download model weights
+### 3. Download model weights
+The model weights used for training and evaluation can be downloaded from the following link.
+```bash
+https://drive.google.com/drive/folders/1pfKXi3r1E5GiL2yzF2vqjQC4mdSZ3rbb?usp=drive_link
+```   
 
 ## Data
 https://drive.google.com/drive/folders/1zNymyjfZVhROodZz1M75lk51AzXEolkd?usp=drive_link
