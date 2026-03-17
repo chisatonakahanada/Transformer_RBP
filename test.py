@@ -1,10 +1,11 @@
 import os
 import csv
+import math
 import argparse
 from datetime import datetime
-
-import torch
+import numpy as np
 import pandas as pd
+import torch
 from torch.utils.data import DataLoader
 from tqdm import tqdm
 
@@ -20,13 +21,27 @@ from load_data import (
 from metrics import label_metrics, sample_metrics
 
 
+def safe_value(v):
+    if v is None:
+        return float("nan")
+    if isinstance(v, float):
+        if math.isnan(v) or math.isinf(v):
+            return float("nan")
+        return v
+    return v
+
 def ensure_list(x, n):
     if isinstance(x, torch.Tensor):
-        return x.detach().cpu().flatten().tolist()
+        lst = x.detach().cpu().flatten().tolist()
     elif isinstance(x, (list, tuple)):
-        return list(x)
+        lst = list(x)
     else:
-        return [float(x)] * n
+        lst = [x] * n
+
+    if len(lst) < n:
+        lst += [float("nan")] * (n - len(lst))
+
+    return [safe_value(v) for v in lst]
 
 
 def run_inference(model, loader, device, label_names, log_dir):
@@ -95,7 +110,6 @@ def evaluate(prob_path, label_path,
     y_true = torch.from_numpy(y_true_np)
     y_prob = torch.from_numpy(y_prob_np)
 
-    # gamma補正
     gamma = 0.2
     y_prob = y_prob ** gamma
 
@@ -110,8 +124,8 @@ def evaluate(prob_path, label_path,
 
     from sklearn.metrics import f1_score
 
-    macro_f1 = f1_score(y_true_np, y_pred.numpy(), average="macro", zero_division=0)
-    micro_f1 = f1_score(y_true_np, y_pred.numpy(), average="micro", zero_division=0)
+    macro_f1 = safe_value(f1_score(y_true_np, y_pred.numpy(), average="macro", zero_division=0))
+    micro_f1 = safe_value(f1_score(y_true_np, y_pred.numpy(), average="micro", zero_division=0))
 
     num_labels = len(metric_label_names)
 
@@ -142,10 +156,15 @@ def evaluate(prob_path, label_path,
         sample_m["sample_accuracy"],
     ]
 
-    for key in ["acc","precision","recall","specificity","npv","f1"]:
+    row += ensure_list(label_m["per_label_acc"], num_labels)
+
+    for key in ["precision","recall","specificity","npv","f1"]:
         row += ensure_list(label_m[key], num_labels)
 
-    writer.writerow([f"{v:.4f}" if isinstance(v, float) else v for v in row])
+    writer.writerow([
+    f"{safe_value(v):.4f}" if isinstance(v, float) else safe_value(v)
+    for v in row
+])
 
 
 def main():
@@ -226,7 +245,7 @@ def main():
     refseq_ids = df_test["Refseq_id"].tolist()
 
     # ===============================
-    # RBP (Reformer)
+    # Load RBP matrix (Reformer)
     # ===============================
     print("\n=== RBP Loading ===")
 
@@ -238,7 +257,7 @@ def main():
     )
 
     # ===============================
-    # embeddings
+    # Load RNA embeddings
     # ===============================
     print("\n=== Embeddings Loading  ===")
     embeddings, _ = load_embeddings_npy(
@@ -282,7 +301,7 @@ def main():
     result_path = os.path.join(result_dir, "test_result.csv")
 
     with open(result_path, "w", newline="") as f:
-        writer = csv.writer(f, delimiter="\t")
+        writer = csv.writer(f)
 
         evaluate(
             prob_path,
